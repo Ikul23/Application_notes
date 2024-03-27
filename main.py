@@ -1,13 +1,18 @@
-from app.controller import NotesController
-from app.view import display_main_menu
+import logging
+from app import NotesController, display_main_menu
+from app.logging_config import configure_logging
 
 def main():
-    # Создать экземпляр контроллера
-    notes_controller = NotesController()
+    # Настройка логирования
+    logger = configure_logging()
+
+    # Создать экземпляр контроллера с передачей объекта логгера
+    notes_controller = NotesController(logger)
 
     # Загрузить данные из файла (JSON/CSV)
-    notes_controller.load_notes()
-    notes_controller.run()
+    filename = input("Введите имя файла для загрузки заметок: ")
+    notes_controller.load_notes(filename)
+
     # Запуск приложения
     while True:
         display_main_menu()
@@ -25,10 +30,9 @@ def main():
             note_id = int(input("Введите ID заметки: "))
             notes_controller.delete_note(note_id)
         elif choice == "5":
-            break
-
-    print("Спасибо за использование приложения!")
-
+            filename = input("Введите имя файла для сохранения заметок: ")
+            notes_controller.save_notes(filename)
+            break  # Выход из цикла при выборе пункта 5
 
 if __name__ == "__main__":
     main()
