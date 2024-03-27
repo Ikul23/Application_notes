@@ -69,12 +69,16 @@ Datetime для работы с датой/временем.
 Реализация паттерна MVP для проекта:
 1. Структура папок:
 
-- app/
-    - __init__.py
-    - model.py
-    - view.py
-    - presenter.py
-- main.py
+app/
+│
+├── __init__.py
+├── model.py
+├── view.py
+├── presenter.py
+├── controller.py
+│
+└── main.py
+
 2. Файлы:
 
 models.py: Содержит классы сущностей (в данном случае Заметка).
