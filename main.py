@@ -1,38 +1,32 @@
 import logging
-from app import NotesController, display_main_menu
-from app.logging_config import configure_logging
+from app.presenter import NotesPresenter
+from app.view import display_main_menu, input_filename
+from app.logging_config import configure_logging  # Импортируем функцию configure_logging
 
 def main():
-    # Настройка логирования
-    logger = configure_logging()
+    logger = configure_logging()  # Вызываем функцию configure_logging для настройки логирования
+    presenter = NotesPresenter()
 
-    # Создать экземпляр контроллера с передачей объекта логгера
-    notes_controller = NotesController(logger)
-
-    # Загрузить данные из файла (JSON/CSV)
-    filename = input("Введите имя файла для загрузки заметок: ")
-    notes_controller.load_notes(filename)
-
-    # Запуск приложения
     while True:
         display_main_menu()
         choice = input("Введите номер пункта меню: ")
 
-        # Обработка выбора пользователя
         if choice == "1":
-            notes_controller.create_note()
+            presenter.create_note()
         elif choice == "2":
-            notes_controller.get_notes()
+            presenter.get_notes()
         elif choice == "3":
-            note_id = int(input("Введите ID заметки: "))
-            notes_controller.edit_note(note_id)
+            presenter.edit_note()
         elif choice == "4":
-            note_id = int(input("Введите ID заметки: "))
-            notes_controller.delete_note(note_id)
+            presenter.delete_note()
         elif choice == "5":
-            filename = input("Введите имя файла для сохранения заметок: ")
-            notes_controller.save_notes(filename)
-            break  # Выход из цикла при выборе пункта 5
+            filename = input_filename()
+            file_format = input("Введите формат файла (json/csv): ")
+            presenter.save_notes_to_file(filename, file_format)
+        elif choice == "6":
+            presenter.load_notes_from_file()
+        elif choice == "7":
+            break
 
 if __name__ == "__main__":
     main()

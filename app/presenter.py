@@ -1,29 +1,49 @@
-from datetime import datetime
+from .logging_config import configure_logging
+from .controller import NotesController
+from .view import input_note_details, input_note_id, display_message
 
-def format_date(date):
-    """Форматирует дату для отображения."""
-    return datetime.strptime(date, '%Y-%m-%d %H:%M:%S').strftime('%d.%m.%Y %H:%M:%S')
+class NotesPresenter:
+    def __init__(self):
+        self.logger = configure_logging()
+        self.controller = NotesController(self.logger)
 
-def format_notes_list(notes):
-    """Форматирует список заметок для отображения."""
-    formatted_notes = []
-    for note in notes:
-        formatted_note = {
-            "ID": note.id,
-            "Заголовок": note.title,
-            "Дата создания": format_date(note.created_date),
-            "Дата изменения": format_date(note.modified_date)
-        }
-        formatted_notes.append(formatted_note)
-    return formatted_notes
+    def create_note(self):
+        title, body = input_note_details()
+        self.controller.create_note(title, body)
+        display_message("Заметка создана успешно.")
 
-def format_note_details(note):
-    """Форматирует детали заметки для отображения."""
-    formatted_note = {
-        "ID": note.id,
-        "Заголовок": note.title,
-        "Тело": note.body,
-        "Дата создания": format_date(note.created_date),
-        "Дата изменения": format_date(note.modified_date)
-    }
-    return formatted_note
+    def get_notes(self):
+        notes = self.controller.get_all_notes()
+        display_notes_list(notes)
+
+    def edit_note(self):
+        note_id = input_note_id()
+        new_title, new_body = input_note_details()
+        success = self.controller.edit_note(note_id, new_title, new_body)
+        if success:
+            display_message("Заметка успешно отредактирована.")
+        else:
+            display_message("Заметка с указанным ID не найдена.")
+
+    def delete_note(self):
+        note_id = input_note_id()
+        success = self.controller.delete_note_by_id(note_id)
+        if success:
+            display_message("Заметка успешно удалена.")
+        else:
+            display_message("Заметка с указанным ID не найдена.")
+
+    def save_notes_to_file(self, filename, file_format):  # Modify method signature
+        success = self.controller.save_notes_to_file(filename, file_format)  # Call controller method with arguments
+        if success:
+            display_message("Заметки успешно сохранены в файл.")
+        else:
+            display_message("Ошибка при сохранении заметок в файл.")
+
+    def load_notes_from_file(self):
+        filename = input_filename()
+        success = self.controller.load_notes_from_file(filename)
+        if success:
+            display_message("Заметки успешно загружены из файла.")
+        else:
+            display_message("Ошибка при загрузке заметок из файла.")

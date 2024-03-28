@@ -1,29 +1,22 @@
+import uuid
+import datetime
+
 class Note:
-    def __init__(self, note_id, title, body, created_date, modified_date):
-        self.id = note_id
+    def __init__(self, title, body):
+        self.id = uuid.uuid4()
         self.title = title
         self.body = body
-        self.created_date = created_date
-        self.modified_date = modified_date
+        self.created_at = datetime.datetime.now()
+        self.updated_at = datetime.datetime.now()
 
-    def to_dict(self):
-        return {
-            "id": self.id,
-            "title": self.title,
-            "body": self.body,
-            "created_date": self.created_date,
-            "modified_date": self.modified_date
-        }
+class NotesController:
+    def __init__(self):
+        self.notes = []
 
-    @classmethod
-    def from_dict(cls, data):
-        return cls(
-            data["id"],
-            data["title"],
-            data["body"],
-            data["created_date"],
-            data["modified_date"]
-        )
+    def create_note(self, title, body):
+        new_note = Note(title, body)
+        self.notes.append(new_note)
+        return new_note
 
-    def to_list(self):
-        return [self.id, self.title, self.body, self.created_date, self.modified_date]
+    def get_all_notes(self):
+        return self.notes
