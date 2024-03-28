@@ -1,29 +1,29 @@
 # Application_notes
 #
 
-## **Описание задачи:**
+## **РћРїРёСЃР°РЅРёРµ Р·Р°РґР°С‡Рё:**
 
-Реализовать консольное приложение заметки, с сохранением, чтением,
-добавлением, редактированием и удалением заметок. Заметка должна
-содержать идентификатор, заголовок, тело заметки и дату/время создания или
-последнего изменения заметки. Сохранение заметок необходимо сделать в
-формате json или csv формат (разделение полей рекомендуется делать через
-точку с запятой). 
+Р РµР°Р»РёР·РѕРІР°С‚СЊ РєРѕРЅСЃРѕР»СЊРЅРѕРµ РїСЂРёР»РѕР¶РµРЅРёРµ Р·Р°РјРµС‚РєРё, СЃ СЃРѕС…СЂР°РЅРµРЅРёРµРј, С‡С‚РµРЅРёРµРј,
+РґРѕР±Р°РІР»РµРЅРёРµРј, СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёРµРј Рё СѓРґР°Р»РµРЅРёРµРј Р·Р°РјРµС‚РѕРє. Р—Р°РјРµС‚РєР° РґРѕР»Р¶РЅР°
+СЃРѕРґРµСЂР¶Р°С‚СЊ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ, Р·Р°РіРѕР»РѕРІРѕРє, С‚РµР»Рѕ Р·Р°РјРµС‚РєРё Рё РґР°С‚Сѓ/РІСЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ РёР»Рё
+РїРѕСЃР»РµРґРЅРµРіРѕ РёР·РјРµРЅРµРЅРёСЏ Р·Р°РјРµС‚РєРё. РЎРѕС…СЂР°РЅРµРЅРёРµ Р·Р°РјРµС‚РѕРє РЅРµРѕР±С…РѕРґРёРјРѕ СЃРґРµР»Р°С‚СЊ РІ
+С„РѕСЂРјР°С‚Рµ json РёР»Рё csv С„РѕСЂРјР°С‚ (СЂР°Р·РґРµР»РµРЅРёРµ РїРѕР»РµР№ СЂРµРєРѕРјРµРЅРґСѓРµС‚СЃСЏ РґРµР»Р°С‚СЊ С‡РµСЂРµР·
+С‚РѕС‡РєСѓ СЃ Р·Р°РїСЏС‚РѕР№). 
 
-## **Навигация по проекту:**
+## **РќР°РІРёРіР°С†РёСЏ РїРѕ РїСЂРѕРµРєС‚Сѓ:**
 
-*папка с исходным кодом:* https://github.com/Ikul23/Application_notes/tree/main/app
+*РїР°РїРєР° СЃ РёСЃС…РѕРґРЅС‹Рј РєРѕРґРѕРј:* https://github.com/Ikul23/Application_notes/tree/main/app
 
-*файл __init__.py:* https://github.com/Ikul23/Application_notes/blob/main/app/__init__.py
+*С„Р°Р№Р» __init__.py:* https://github.com/Ikul23/Application_notes/blob/main/app/__init__.py
 
-*модуль controller:* https://github.com/Ikul23/Application_notes/blob/main/app/controller.py
+*РјРѕРґСѓР»СЊ controller:* https://github.com/Ikul23/Application_notes/blob/main/app/controller.py
 
-*модуль view:* https://github.com/Ikul23/Application_notes/blob/main/app/view.py
+*РјРѕРґСѓР»СЊ view:* https://github.com/Ikul23/Application_notes/blob/main/app/view.py
 
-*модуль presenter:* https://github.com/Ikul23/Application_notes/blob/main/app/presenter.py
+*РјРѕРґСѓР»СЊ presenter:* https://github.com/Ikul23/Application_notes/blob/main/app/presenter.py
 
-*модуль model:* https://github.com/Ikul23/Application_notes/blob/main/app/model.py
+*РјРѕРґСѓР»СЊ model:* https://github.com/Ikul23/Application_notes/blob/main/app/model.py
 
-*модуль logging_config:* https://github.com/Ikul23/Application_notes/blob/main/app/logging_config.py
+*РјРѕРґСѓР»СЊ logging_config:* https://github.com/Ikul23/Application_notes/blob/main/app/logging_config.py
 
-*файл с описанием проекта Description.txt:* https://github.com/Ikul23/Application_notes/blob/main/Description.txt
+*С„Р°Р№Р» СЃ РѕРїРёСЃР°РЅРёРµРј РїСЂРѕРµРєС‚Р° Description.txt:* https://github.com/Ikul23/Application_notes/blob/main/Description.txt
